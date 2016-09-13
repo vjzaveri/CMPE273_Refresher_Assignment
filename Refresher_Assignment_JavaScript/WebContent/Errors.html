@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Errors_JavaScript</title>
+<script type="text/javascript">
+var counter=2;
+var fibon=new Array(0,1,1,2,3,5,8,13,21,34);
+function nextNumber()
+{	
+	try
+	{
+		if(fibon[counter]==undefined)
+			{
+			throw "ArrayIndexOutOfBound";
+			}
+		else
+			{
+	document.getElementById("series").value=document.getElementById("series").value+"->"+fibon[counter];
+	counter++;
+	}}
+	catch(err)
+	{
+		alert("ArrayIndexOutOfBound!! Increasing Array size and adding 5 more fibonacci numbers.");
+		var a=fibon.length;
+		var b=a+5;
+		for(;a<b;a++)
+			{
+			fibon[a]=(fibon[a-1]+fibon[a-2]);
+			}
+	}
+}
+</script>
+</head>
+<body>
+<h3>Fibonacci Number Series</h3>
+<input type="text" id="series" value="0->1" size="100">
+<button onclick="nextNumber()">Next Number</button><br>
+<p id="errormsg"></p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Conditions_JavaScript</title>
+
+<script type="text/javascript">
+
+var student;
+student.name;
+student.id;
+student.feespaid;
+student.graduatestatus;
+student.insurance;
+
+function student(name, id, feespaid, graduatestatus, insurance)
+{
+	this.name=name;
+	this.id=id;
+	this.feespaid=feespaid;
+	this.graduatestatus=graduatestatus;
+	this.insurance=insurance;
+	}
+	
+function addClass()
+{
+	var newStudent=new student(document.getElementById("name").value, document.getElementById("id").value, document.getElementById("feespaid").checked, document.getElementById("graduatestatus").checked, document.getElementById("insurance").checked);
+	var flag=0;
+	if(newStudent.feespaid==false)
+		{
+		alert("Fees not paid, Can't Enoll!!");
+		flag=1;
+		}
+	else if(newStudent.graduatestatus==false)
+	{
+		alert("You don't meet required status to Enroll!!");
+		flag=1;
+	}
+	else if(newStudent.insurance==false)
+		{
+		alert("Please purchase Health Insurance First!!");
+		flag=1;
+		}
+	else
+		{
+		if(flag==0)
+			{
+			alert("Successfully Enrolled!!");
+			}
+		}
+	
+	}
+
+</script>
+
+</head>
+<body>
+<h3>Class Registration</h3>
+
+<table>
+
+<tr><td>Enter Name:</td><td><input type="text" id="name"></td></tr>
+<tr><td>Enter Student ID:</td><td><input type="text" id="id"></td></tr>
+<tr><td>Fees paid:</td><td><input type="checkbox" id="feespaid"> </td></tr>
+<tr><td>Graduate Status:</td><td><input type="checkbox" id="graduatestatus"><label>Classified</label> </td></tr>
+<tr><td>Purchased Health Insurance:</td><td><input type="checkbox" id="insurance"> </td></tr>
+<tr><td colspan="2" style="text-align: center;"><button onclick="addClass()">Register for Class</button> </td></tr>
+</table>
+</body>
+</html>

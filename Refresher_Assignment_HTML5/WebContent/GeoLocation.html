@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>GeoLocation_HTML5</title>
+<script type="text/javascript">
+
+var userLatitude, userLongitude;
+
+function getCurrentLocation()
+{
+	if (navigator.geolocation) 
+	{
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } 
+	else 
+	{
+        alert("Geolocation is not supported by your browser!!");
+    }
+	
+}
+
+function showPosition(position)
+{
+	userLatitude=position.coords.latitude;
+	userLongitude=position.coords.longitude;
+	alert("Your Current Location: Latitude: "+userLatitude+"; Longitude: "+userLongitude);
+	}
+	
+function nearbyhotel()
+{
+	var temp='https://www.google.com/maps/search/nearby+restaurants/@'+userLatitude+','+userLongitude+',15z/data=!3m1!4b1';
+	window.open(temp);
+	}
+	
+function nearbyatm()
+{
+	var temp='https://www.google.com/maps/search/ATMS/@'+userLatitude+','+userLongitude+',15z/data=!3m1!4b1';
+	window.open(temp);
+	}
+	
+function nearbyrestaurant()
+{
+	var temp='https://www.google.com/maps/search/nearby+restaurant/@'+userLatitude+','+userLongitude+',15z/data=!3m1!4b1';
+	window.open(temp);
+	}
+	
+function nearbysupermarkets()
+{
+	var temp='https://www.google.com/maps/search/nearby+supermarkets/@'+userLatitude+','+userLongitude+',15z/data=!3m1!4b1';
+	window.open(temp);
+	}
+	
+function nearbypetrolstations()
+{
+	var temp='https://www.google.com/maps/search/nearby+petrol+stations/@'+userLatitude+','+userLongitude+',15z/data=!3m1!4b1';
+	window.open(temp);
+	}
+	
+function nearbychemists()
+{
+	var temp='https://www.google.com/maps/search/nearby+chemists/@'+userLatitude+','+userLongitude+',15z/data=!3m1!4b1';
+	window.open(temp);
+	}
+
+</script>
+</head>
+<body>
+<h3>Find NearBy Attractions</h3>
+<button onclick="getCurrentLocation()">Save Current Location</button><br>
+<button onclick="nearbyhotel()">Find NearBy Hotels</button>
+<button onclick="nearbyatm()">Find NearBy ATMs</button>
+<button onclick="nearbyrestaurant()">Find NearBy Restaurants</button>
+<button onclick="nearbysupermarkets()">Find NearBy SuperMarkets</button>
+<button onclick="nearbypetrolstations()">Find NearBy Petrol Stations</button>
+<button onclick="nearbychemists()">Find NearBy Chemists</button>
+
+</body>
+</html>

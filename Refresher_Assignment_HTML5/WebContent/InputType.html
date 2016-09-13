@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Student Registration</title>
+</head>
+<body>
+<h3 align="center">New Student Registration</h3>
+<div align="center">
+<form>
+<table>
+<tr><td style="text-align: right;">First Name: </td><td> <input type="text" placeholder="First Name" required="required" autofocus="autofocus"><br><td>
+<tr><td style="text-align: right;">Last Name: </td><td><input type="text" placeholder="Last Name"><br><td>
+<tr><td style="text-align: right;">E-mail ID: </td><td><input type="email" placeholder="Enter valid Email ID" required="required" autocomplete="off"><br><td>
+<tr><td style="text-align: right;">Phone No.: </td><td><input type="tel" placeholder="Valid Cell Number"><br><td>
+<tr><td style="text-align: right;">Birth date: </td><td><input type="datetime-local" placeholder="Enter Birthdate" ><br><td>
+<tr><td style="text-align: right;">Password: </td><td><input type="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" required="required" ><br><td>
+<tr><td style="text-align: right;">Confirm Password: </td><td><input type="password" required><br><td>
+<tr><td style="text-align: right;"><input type="reset"></td><td> <input type="submit" value="Submit Form"><td>
+</table>
+</form>
+</div>
+
+</body>
+</html>

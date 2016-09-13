@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+
+function check()
+{
+	var email=document.getElementById("email").value;
+	var emailRegExp =new RegExp("^[\\w_\.]*[\\w_\.]\@sjsu.edu$");
+	if(emailRegExp.test(email))
+		{
+		document.getElementById("emailAlert").innerHTML="Valid Email ID";
+		}
+	else
+		{
+		document.getElementById("emailAlert").innerHTML="Invalid Email ID";
+		}
+
+	var password=document.getElementById("password").value;
+	var passRegExp=new RegExp("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$");
+	if(passRegExp.test(password))
+		{
+		document.getElementById("passwordAlert").innerHTML="Valid Password";
+		}
+	else
+		{
+		document.getElementById("passwordAlert").innerHTML="Invalid Password";
+		}
+	
+	}
+</script>
+<meta charset="ISO-8859-1">
+<title>Regular_Expressions_JavaScript</title>
+</head>
+<body>
+<h3>New Student Login</h3><br>
+<table>
+<tr><td width="120px">Enter E-mail ID:</td>
+<td><input type="text" id="email"></td><td><p id="emailAlert">Email ID should end with '@sjsu.edu'</p></td></tr>
+<tr><td width="120px">Enter Password</td>
+<td><input type="password" id="password"></td><td><p id="passwordAlert">Password should be more then 8 characters long and should include one lower case, one upper case, one digit and one special character.</p></td></tr>
+<tr><td><button value="Submit" onclick="check()">Submit</button></td></tr>
+</table>
+</body>
+</html>

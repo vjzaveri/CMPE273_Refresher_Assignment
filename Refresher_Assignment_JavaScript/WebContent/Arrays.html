@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+
+function cal()
+{
+	var a=1,b=2,c=3;
+	var matrix1=new Array(2);
+	var matrix2=new Array(2);
+	var matrix3=new Array(3);
+	matrix3[0]=new Array(2);
+	matrix3[1]=new Array(2);
+	for(var i=1; i<=2;i++)
+		{
+		matrix1[i-1]=new Array(2);
+		for(var j=1;j<=2;j++)
+			{
+			matrix1[i-1][j-1]=document.getElementById(a+"i"+i+"j"+j).value
+			}
+		}
+	for(var i=1; i<=2;i++)
+	{
+	matrix2[i-1]=new Array(2);
+	for(var j=1;j<=2;j++)
+		{
+		matrix2[i-1][j-1]=document.getElementById(b+"i"+i+"j"+j).value
+		}
+	}
+	
+	matrix3[0][0]=matrix1[0][0]*matrix2[0][0]+matrix1[0][1]*matrix2[1][0];
+	matrix3[0][1]=matrix1[0][0]*matrix2[0][1]+matrix1[0][1]*matrix2[1][1];
+	matrix3[1][0]=matrix1[1][0]*matrix2[0][0]+matrix1[1][1]*matrix2[1][0];
+	matrix3[1][1]=matrix1[1][0]*matrix2[0][1]+matrix1[1][1]*matrix2[1][1];
+
+	for(var i=1; i<=2;i++)
+	{
+	for(var j=1;j<=2;j++)
+		{
+		document.getElementById(c+"i"+i+"j"+j).value=matrix3[i-1][j-1];
+		}
+	}
+	}
+
+</script>
+<meta charset="ISO-8859-1">
+<title>Arrays_JavaScript</title>
+</head>
+<body>
+<h3>Matrix Multiplication</h3>
+<table>
+<tr>
+<td><input type="number" size=1 id="1i1j1"> </td>
+<td><input type="number" size=1 id="1i1j2"> </td>
+
+<td></td>
+<td><input type="number" size=1 id="2i1j1"> </td>
+<td><input type="number" size=1 id="2i1j2"> </td>
+
+<td></td>
+<td><input type="number" size=1 id="3i1j1"> </td>
+<td><input type="number" size=1 id="3i1j2"> </td>
+
+</tr>
+
+<tr>
+<td><input type="number" size=1 id="1i2j1"> </td>
+<td><input type="number" size=1 id="1i2j2"> </td>
+
+<td><label>x</label> </td>
+<td><input type="number" size=1 id="2i2j1"> </td>
+<td><input type="number" size=1 id="2i2j2"> </td>
+
+<td><label>=</label></td>
+<td><input type="number" size=1 id="3i2j1"> </td>
+<td><input type="number" size=1 id="3i2j2"> </td>
+
+</tr>
+</table>
+<button onclick="cal()">Calculate</button>
+</body>
+</html>

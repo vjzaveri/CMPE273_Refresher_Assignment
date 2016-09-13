@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Type_conversions_JavaScript</title>
+<script type="text/javascript">
+
+function trimOutNumbers()
+{
+	var sentence=document.getElementById("statement").value;
+	var a=[];
+	for(var i=0; i<sentence.length;i++)
+		{
+		if(isNaN(Number(sentence.charAt(i))))
+			{
+			a.push(sentence.charAt(i));	
+			}
+		}
+	document.getElementById("statement").value=a[0];
+	for(var j=1;j<a.length;j++)
+		{
+		document.getElementById("statement").value=document.getElementById("statement").value+""+a[j];	
+		}
+	}
+</script>
+</head>
+<body>
+<input type="text" id="statement" size="50">
+<button onclick="trimOutNumbers()">Click to remove digits from statement</button>
+</body>
+</html>

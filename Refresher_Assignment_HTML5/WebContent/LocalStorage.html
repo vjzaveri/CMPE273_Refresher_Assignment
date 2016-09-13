@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>LocalStorage_HTML5</title>
+<script type="text/javascript">
+
+var incomplete=localStorage.getItem("incomplete");
+localStorage.setItem("incomplete",1);
+//localStorage.setItem("incomplete",incomplete);
+
+function welcome()
+{
+	if(incomplete==1)
+		{
+		if(confirm("You left out incomplete form last time, Do you want to resume??"))
+			{
+			document.getElementById("fname").value=localStorage.getItem("fname");
+			document.getElementById("lname").value=localStorage.getItem("lname");
+			document.getElementById("bdate").value=localStorage.getItem("bdate");
+			document.getElementById("email").value=localStorage.getItem("email");
+			document.getElementById("number").value=localStorage.getItem("number");
+			}
+		}
+	}
+
+function storeFname()
+{
+	alert();
+	var temp=document.getElementById("fname").value;
+	localStorage.setItem("fname",temp);
+	alert(localStorage.getItem("fname"));
+	}
+	
+function storeLname()
+{
+	var temp=document.getElementById("lname").value;
+	localStorage.setItem("lname",temp);
+	}
+	
+function storeNumber()
+{
+	var temp=document.getElementById("number").value;
+	localStorage.setItem("number",temp);
+	}
+	
+function storeEmail()
+{
+	var temp=document.getElementById("email").value;
+	localStorage.setItem("email",temp);
+	}
+	
+function storeBdate()
+{
+	var temp=document.getElementById("bdate").value;
+	localStorage.setItem("bdate",temp);
+	}
+	
+function submit()
+{
+	localStorage.setItem("incomplete",0);
+	alert("Added");
+	}
+
+</script>
+</head>
+<body onload="welcome()">
+<h3 align="center">New Student Registration</h3>
+<div align="center">
+<form>
+<table>
+<tr><td style="text-align: right;">First Name: </td><td><input type="text" placeholder="First Name" required="required" onblur="storeFname()" id="fname"><br><td>
+<tr><td style="text-align: right;">Last Name: </td><td><input type="text" placeholder="Last Name" onblur="storeLname()" id="lname"><br><td>
+<tr><td style="text-align: right;">E-mail ID: </td><td><input type="email" placeholder="Enter valid Email ID" required="required" autocomplete="off" onblur="storeEmail()" id="email"><br><td>
+<tr><td style="text-align: right;">Phone No.: </td><td><input type="tel" placeholder="Valid Cell Number" onblur="storeNumber()" id="number"><br><td>
+<tr><td style="text-align: right;">Birth date: </td><td><input type="datetime-local" placeholder="Enter Birthdate" onblur="storeBdate()" id="bdate"><br><td>
+<tr><td style="text-align: right;">Password: </td><td><input type="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$" required="required" ><br><td>
+<tr><td style="text-align: right;">Confirm Password: </td><td><input type="password" required><br><td>
+<tr><td style="text-align: right;"><input type="reset"></td><td> <button onclick="submit()">Submit Form</button><td>
+</table>
+</form>
+</div>
+
+</body>
+</html>

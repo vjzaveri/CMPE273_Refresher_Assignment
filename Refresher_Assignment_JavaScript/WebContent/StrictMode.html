@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+
+function withOutStrictMode()
+{
+	alert("Function without strict mode, you will be able to see the next alert. Click on another button and see the difference.")
+	temp="You won't see this second alert in other button's onClick function!!"
+	alert(temp);
+	}
+
+function withStrictMode()
+{
+	"use strict";
+	alert("Same function, but with Strict mode, next alert won't be displayed as variable was not declared!!")
+	temp="You won't be seeing this alert!"
+	alert(temp);
+	}
+
+</script>
+<meta charset="ISO-8859-1">
+<title>Strict_Mode_JavaScript</title>
+</head>
+<body>
+<h3>Working of Strict mode</h3>
+
+<button onclick="withOutStrictMode()">Function Without Strict Mode</button>
+<button onclick="withStrictMode()">Same Function With Strict Mode</button>
+
+</body>
+</html>

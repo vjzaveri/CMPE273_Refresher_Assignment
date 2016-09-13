@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>JSON_JavaScript</title>
+<script type="text/javascript">
+var mainstring='{ "employees":[{"fname":"Vansh","ssn":"000000000", "city":"San Jose", "state":"California","contact":"9999999999"}]}';
+
+function addEmployee()
+{
+	var fname=document.getElementById("fname").value;
+	var ssn=document.getElementById("ssn").value;
+	var city=document.getElementById("city").value;
+	var state=document.getElementById("state").value;
+	var contact=document.getElementById("contact").value;
+	var temp=','+' {'+'"fname":"'+fname+'","ssn":"'+ssn+'", "city":"'+city+'", "state":"'+state+'","contact":"'+contact+'"}]}';
+	
+	mainstring=mainstring.substring(0,mainstring.length-2);
+	mainstring=mainstring+temp;
+	alert("Added!");
+	}
+	
+function displayAllEmployees()
+{
+	obj=JSON.parse(mainstring);
+	for(var i=0;i<obj.employees.length;i++)
+		{
+		var temp="<br>"+"Name: "+obj.employees[i].fname+"<br>"+"SSN: "+obj.employees[i].ssn+"<br>"+"City: "+obj.employees[i].city+"<br>"+"State: "+obj.employees[i].state+"<br>"+"Contact: "+obj.employees[i].contact+"<br>";
+		document.getElementById("allEmployees").innerHTML=document.getElementById("allEmployees").innerHTML+temp;
+		}
+}
+
+</script>
+</head>
+<body>
+<h3>Hotel Staff Management</h3>
+
+<table>
+
+<tr><td>Enter Name:</td><td><input type="text" name="fname" id="fname"></td></tr>
+<tr><td>Enter SSN:</td><td><input type="text" name="ssn" id="ssn"></td></tr>
+<tr><td>Enter City:</td><td><input type="text" name="city" id="city"></td></tr>
+<tr><td>Enter State:</td><td><input type="text" name="state" id="state"></td></tr>
+<tr><td>Enter Contact:</td><td><input type="text" name="contact" id="contact"></td></tr>
+<tr><td colspan="2"><button onclick="addEmployee()">Add Staff</button> </td></tr>
+<tr><td colspan="2"><button onclick="displayAllEmployees()">Display All Employees</button></td></tr>
+</table>
+<div id="allEmployees"></div>
+</body>
+</html>

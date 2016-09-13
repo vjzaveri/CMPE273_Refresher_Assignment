@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Inheritance_JavaScript</title>
+<script type="text/javascript">
+var counter=1;
+
+var Library;
+Library.type;
+Library.language;
+Library.id;
+
+function Library(type, language)
+{
+	this.type=type;
+	this.language=language;
+	this.id=counter;
+	counter++;
+	}
+
+var DVD= new Object(Library);
+DVD.category;
+DVD.title;
+
+function DVD(type, language, category, title)
+{
+	this.type=type;
+	this.language=language;
+	this.category=category;
+	this.title=title;
+	}
+
+var Book=new Object(Library);
+Book.ISBN;
+Book.author;
+Book.title;
+Book.noOfPages;
+
+function Book(type, language, ISBN, author, title, noOfPages)
+{
+	this.type=type;
+	this.language=language;
+	this.ISBN=ISBN;
+	this.author=author;
+	this.title=title;
+	this.noOfPages=noOfPages;
+	}
+
+function addBook(type, language, ISBN, author, title, noOfPages)
+{
+	var newBook=new Book(type, language, ISBN, author, title, noOfPages);
+	
+	alert("Book added with ID:"+newBook.id);
+	}
+	
+function addDVD(type, language, category, title)
+{
+	var newDVD=new DVD(type, language, category, title);
+	alert("DVD added with id:"+newDVD.id);
+	}
+
+</script>
+
+</head>
+<body>
+<h3>Library Database</h3>
+<table>
+
+<tr> <td colspan="2" style="text-align: center;"><h4>Books</h4></td> <td colspan="2" style="text-align: center;"><h4>DVD</h4></td> </tr>
+<tr>
+<td>Book Type:</td><td><input type="text" id="booktype" required="required"> </td>
+<td>DVD Type:</td><td><input type="text" name="DVDtype" required="required"></td>
+</tr>
+<tr>
+<td>Book Title:</td><td><input type="text" id="booktitle" required="required"> </td>
+<td>DVD Title:</td><td><input type="text" name="DVDtitle" required="required"></td>
+</tr>
+<tr>
+<td>Book Author:</td><td><input type="text" id="bookauthor" required="required"> </td>
+<td>DVD Category:</td><td><input type="text" name="DVDcategory" required="required"></td>
+</tr>
+<tr>
+<td>Book Language:</td><td><input type="text" id="booklanguage" required="required"> </td>
+<td>DVD Language:</td><td><input type="text" name="DVDlanguage" required="required"></td>
+</tr>
+<tr>
+<td>Book ISBN:</td><td><input type="text" id="bookISBN" required="required"> </td>
+<td></td><td></td>
+</tr>
+<tr>
+<td>Number of Pages:</td><td><input type="text" id="booknoofpages" required="required"> </td>
+<td></td><td></td>
+</tr>
+<tr>
+<td colspan="2"><button onclick="addBook(booktype.value, booklanguage.value, bookISBN.value, bookauthor.value, booktitle.value, booknoofpages.value)">Add Book</button> </td>
+<td colspan="2"><button onclick="addDVD(DVDtype.value, DVDlanguage.value, DVDcategory.value, DVDtitle.value)">Add DVD</button> </td>
+</tr>
+</table>
+</body>
+</html>

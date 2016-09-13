@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Objects_JavaScript</title>
+<script type="text/javascript">
+var stuData= new Array();
+var student = new object();
+student.firstName;
+student.lastName;
+student.academicYear;
+
+function student(fName, lName, aYear)
+{
+	this.fName=fName;
+	this.lName=lName;
+	this.aYear=aYear;
+	}
+
+function pushData()
+{
+	var stu = new student(document.getElementById("studentfname").value,document.getElementById("studentlname").value,document.getElementById("academicyear").value);
+	stuData.push(stu);
+	document.getElementById("display").innerHTML=document.getElementById("display").innerHTML + "Saved";
+	}
+	
+function pullData()
+{
+	var x, breakPoint='<br>';
+	document.getElementById("display").innerHTML="";
+	for(x=0; x < stuData.length; x++)
+		{
+		document.getElementById("display").innerHTML=document.getElementById("display").innerHTML + stuData[x].fName + " " + stuData[x].lName + ", " + stuData[x].aYear + "<br>";
+		}
+	}
+</script>
+</head>
+<body>
+<h3>Enter Student details and save as many as you want, and then display the whole list.</h3><br>
+<table>
+<tr><td><label>Enter First Name:</label></td><td>  <input type="text" name="studentfname" id="studentfname" placeholder="Enter First Name"><br></td>
+<tr><td><label>Enter Last Name:</label></td><td><input type="text" name="studentlname" id="studentlname" placeholder="Enter Last Name"><br></td>
+<tr><td><label>Enter Enrollment Year:</label></td><td><input type="text" name="academicyear" id="academicyear" placeholder="Enter Enrollment Year"><br></td>
+<tr><td><input type="button" value="Save" onclick="pushData()"></td>
+<td><input type="button" value="Display" onclick="pullData()"></td>
+</table>
+<p id="display"></p>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function isPrime(numA)
+{
+	var i,flag=0;
+	for(i=2;i<=numA/2;i++)
+	{
+		if(numA%i==0)
+		{
+			flag=1;
+			break;
+		}
+	}
+	if(flag==1)
+		{
+		document.getElementById("output").innerHTML="<h3>"+numA+" Is not a Prime</h3>";
+		}
+	else
+		{
+		document.getElementById("output").innerHTML="<h3>"+numA+" Is a Prime</h3>";
+		}
+	}
+</script>
+<meta charset="ISO-8859-1">
+<title>Functions_JavaScript</title>
+</head>
+<body>
+<label>Enter a Number: </label> <input type="text" id="primenumber" name="primenumber"><br>
+<input type="button" value="Check for Prime" onclick="isPrime(primenumber.value)">
+<div id="output"></div>
+</body>
+</html>

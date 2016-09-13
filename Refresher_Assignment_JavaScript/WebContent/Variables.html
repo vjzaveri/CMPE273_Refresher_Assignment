@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+
+var shape=new object();
+shape.area;
+shape.perimeter;
+
+function shape(area, perimeter)
+{
+	this.area=area;
+	this.perimeter=perimeter;
+	}
+
+function newCircle()
+{
+	var area=document.getElementById("radius").value*document.getElementById("radius").value*3.14;
+	var perimeter=document.getElementById("radius").value*2*3.14;
+	var circle=new shape(area,perimeter);
+	document.getElementById("circleArea").value="Area: "+circle.area;
+	document.getElementById("circlePerimeter").value="Perimeter: "+circle.perimeter;
+	
+	}
+	
+function newRectangle()
+{
+	var area=document.getElementById("length").value*document.getElementById("breadth").value;
+	var perimeter=(document.getElementById("length").value+document.getElementById("breadth").value)*2;
+	var rectangle=new shape(area,perimeter);
+	document.getElementById("rectangleArea").value="Area: "+rectangle.area;
+	document.getElementById("rectanglePerimeter").value="Perimeter: "+rectangle.perimeter;
+	
+	}
+
+</script>
+<meta charset="ISO-8859-1">
+<title>Variables_JavaScript</title>
+</head>
+<body>
+<h3>Calculate Area and Perimeter of Circle and Rectangle</h3>
+<table>
+
+<tr>
+<td style="text-align:center;" colspan="2"><h3>Circle</h3></td>
+
+<td style="text-align:center;" colspan="2"><h3>Rectangle</h3></td>
+</tr>
+
+<tr>
+<td>Enter Radius:</td><td><input type="text" id="radius"></td>
+
+<td>Enter Breadth:</td><td><input type="text" id="breadth"></td>
+</tr>
+
+<tr>
+<td></td><td></td>
+
+<td><label>Enter Length:</label></td><td><input type="text" id="length"></td>
+</tr>
+
+<tr>
+<td rowspan="2"><button onclick="newCircle()">Calculate</button></td><td><input type="text" id="circleArea"> </td>
+
+<td rowspan="2"><button onclick="newRectangle()">Calculate</button></td><td><input type="text" id="rectangleArea"> </td>
+</tr>
+<tr>
+<td><input type="text" id="circlePerimeter"> </td>
+<td><input type="text" id="rectanglePerimeter"> </td>
+</tr>
+</table>
+</body>
+</html>
