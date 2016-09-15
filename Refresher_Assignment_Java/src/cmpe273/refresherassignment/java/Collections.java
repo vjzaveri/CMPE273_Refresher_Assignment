@@ -6,7 +6,7 @@ import java.util.Random;
 public class Collections {
 
 	ArrayList<Integer> a;
-	
+	static long startTime, endTime;
 	public Collections(int size)
 	{
 		a=new ArrayList<Integer>(size);
@@ -36,15 +36,16 @@ public class Collections {
 	
 	public static void main(String args[])
 	{
-		long startTime = System.nanoTime();
-		Collections c=new Collections(65536);
+		
+		Collections c=new Collections(10000000);
 		/*Selecting the nearest to last element and hardcoding 
 		 * it to find in ArrayList, to calculate the maximum number
 		 *  of time taken to traverse through whole ArrayList*/
-		int temp=c.a.get(65500);
+		int temp=c.a.get(9999998);
+		startTime = System.nanoTime();
 		int pos=c.search(temp);
 		System.out.println(temp+" number found at location:"+pos);
-		long endTime = System.nanoTime();
+		endTime = System.nanoTime();
 		System.out.println("Took "+(endTime - startTime) + " ns"); 
 	}
 	

@@ -6,6 +6,7 @@ import java.util.Random;
 public class MultiThreading implements Runnable {
 
 	ArrayList<Integer> a;
+	static long startTime, endTime;
 	int searchNumber;
 	Thread t;
 	@Override
@@ -16,29 +17,30 @@ public class MultiThreading implements Runnable {
 	
 	public MultiThreading(int size)
 	{
-		int noOfThreads=(int)size/15000;
+		int noOfThreads=(int)size/2000000;
 		a=new ArrayList<Integer>(size);
 		Random rand= new Random();
 		for(int i=0;i<size;i++)
 		{
-			a.add(rand.nextInt(65536));
+			a.add(rand.nextInt(9999));
 		}
-		searchNumber=a.get(65500);
+		searchNumber=a.get(8999980);
+		startTime = System.nanoTime();
 		for(int a=0;a<noOfThreads;a++)
 		{
-			t=new Thread(this, Integer.toString(a+1));
+			t=new Thread(this, Integer.toString(a));
 			t.start();
 		}
 	}
 	
 	public int search(int x)
 	{ 
-			for(int i=15000*x;i<Math.min(15000*x+15000,a.size());i++)
+			for(int i=2000000*x;i<Math.min(2000000*x+2000000,a.size());i++)
 			{
 				if(a.get(i)==searchNumber)
 				{
 					System.out.println("Number found by thread:"+Thread.currentThread().getName()+" at position: "+i);
-					return i;
+					//return i;
 				}
 			}
 			return -1;
@@ -46,9 +48,9 @@ public class MultiThreading implements Runnable {
 	
 	public static void main(String args[])
 	{
-		long startTime = System.nanoTime();
-		new MultiThreading(65536);
-		long endTime = System.nanoTime();
+		//long startTime = System.nanoTime();
+		new MultiThreading(9000000);
+		endTime = System.nanoTime();
 		System.out.println("Took "+(endTime - startTime) + " ns");
 	}
 	
